@@ -1,3 +1,5 @@
+import { TextField } from '@mui/material';
+import { Box } from '@mui/system';
 import React from 'react'
 interface InputProps{
     label : string,
@@ -9,19 +11,22 @@ interface InputProps{
 }
 const InputForm = ( props : InputProps ) =>{
     return(
-        <div style={{
-            marginTop : 5
+        <Box sx={{
+            width: 500,
+            maxWidth: '100%',
+            marginBottom : 2
         }} >
-            {/* input = campo/caja de texto */}
-            <label>{props.label}</label>
-            <input 
+            <TextField 
+                label={props.label}
+                fullWidth
+                size="small"
                 type={props.type} 
                 name={props.name}
                 className={props.className} 
                 placeholder={props.placeholder} 
                 onChange = { (evento) => props.obtener_valor( props.name, evento.target.value ) } />
                 {/* evento es nuestro elemento HTML/JSX el cual tiene sus propiedades dentro de target */}
-        </div>
+        </Box>
     )
 }
 

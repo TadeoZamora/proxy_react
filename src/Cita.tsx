@@ -1,4 +1,6 @@
+import { Box } from '@mui/system';
 import React, {useState}  from 'react';
+import BasicDatePicker from './components/BasicDatePicker';
 import InputForm from './components/InputForm';
 
 export interface ICita{
@@ -16,14 +18,10 @@ interface ICitaProps{
 const Cita = ( props : ICitaProps ) => {
 
     return (
-        <div>
-            <InputForm 
-                label="Fecha de la cita" 
-                name="fecha" 
-                type="date" 
-                placeholder="Selecciona la fecha de tu cita"
-                obtener_valor={props.agregar_valor_a_cita}
-            />
+        <Box>
+            <Box sx={{marginBottom : 2}}>
+                <BasicDatePicker />
+            </Box>
             <InputForm 
                 label="Hora" 
                 name="hora" 
@@ -45,7 +43,7 @@ const Cita = ( props : ICitaProps ) => {
                 placeholder="¿Cuantas personas asistirán?"
                 obtener_valor={props.agregar_valor_a_cita}
             />
-        </div>
+        </Box>
     );
 };
 

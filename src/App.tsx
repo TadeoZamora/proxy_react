@@ -4,6 +4,8 @@ import './css/inicio.css'
 import Usuario, { IUsuario } from './Usuario';
 import * as UsuarioApi from './api/UsuariosAPI'
 import * as CitaApi from './api/CitaAPI'
+import AppBarComponent from './components/AppBar';
+import { Button, Grid } from '@mui/material';
 
 function App() {
   const [ usuario, setUsuario ] = useState<IUsuario>({
@@ -57,16 +59,36 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        Agenda tu cita!
-      </header>
+    <>
+    <Grid container>
+      <Grid item xs={12} sx={{
+        marginBottom : 10
+      }}>
+        <AppBarComponent titulo = "Agendar Cita" />
+      </Grid>
+      <Grid item xs={12} sx={{
+        display : 'flex',
+        flexDirection : 'row',
+        justifyContent : 'center'
+      }}>
         <Usuario agregar_valor_a_estado={agregar_valor_a_estado} />
-      <hr />
+      </Grid>
+      <Grid item xs={12} sx={{
+        display : 'flex',
+        flexDirection : 'row',
+        justifyContent : 'center'
+      }}>
         <Cita agregar_valor_a_cita={agregar_valor_a_cita} />
-      <hr />
-      <button onClick={() => guardar()}>Guardar</button>
-    </div>
+      </Grid>
+      <Grid item xs={12} sx={{
+        display : 'flex',
+        flexDirection : 'row',
+        justifyContent : 'center'
+      }}>
+        <Button variant="contained" color="success" onClick={() => guardar()}>Guardar</Button>
+      </Grid>
+    </Grid>
+    </>
   );
 }
 
